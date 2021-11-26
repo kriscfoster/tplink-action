@@ -33,7 +33,7 @@ This action controls TP-Link smart devices from GitHub workflows. Right now, thi
 The result of the TP-Link request.
 
 ## Example usage
-
+```
 uses: kriscfoster/tplink-action@v1.0
 with:
   email: ${{ secrets.TPLINK_EMAIL }}
@@ -41,3 +41,4 @@ with:
   deviceType: "HS100" # currently supported: "HS100"
   deviceId: "Office Lamp Plug" # this can be the id/alias of the device
   operation: "powerOn" # currently supported: "powerOn", "powerOff"
+```
