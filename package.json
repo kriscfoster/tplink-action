@@ -1,16 +1,19 @@
 {
   "name": "tplink-action",
   "version": "1.0.0",
-  "description": "",
+  "description": "This action controls TP-Link smart devices from GitHub workflows.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["tp-link", "tplink", "github", "action"],
+  "author": "Kris Foster",
   "license": "ISC",
   "dependencies": {
     "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.0"
+    "tplink-cloud-api": "^0.8.1"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
   }
 }

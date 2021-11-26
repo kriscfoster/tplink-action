@@ -1,13 +1,24 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: "TP-Link Action"
+description: "This action controls TP-Link smart devices from GitHub workflows."
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  email:
+    description: "Email address used to authenticate TP-Link account. You should use a secret to store this so it isn't visible."
     required: true
-    default: 'World'
+  password:
+    description: "Password used to authenticate TP-Link account. You should use a secret to store this so it isn't visible."
+    required: true
+  deviceType:
+    description: "Device type. e.g. 'HS100'"
+    required: true
+  deviceId:
+    description: "Device id/alias."
+    required: true
+  operation:
+    description: "Operation you want to perform on device e.g. 'powerOn'."
+    required: true 
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  result:
+    description: "The result of the TP-Link request."
 runs:
   using: 'node12'
   main: 'index.js'

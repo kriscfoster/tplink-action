@@ -1,15 +1,17 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
+const { login } = require('tplink-cloud-api');
+const { performOperation } = require('./tplink');
 
-try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
-}
+(async () => {
+  try {
+    const email = core.getInput('email');
+    const password = core.getInput('password');
+    const deviceType = core.getInput('deviceOperation');
+    const deviceId = core.getInput('deviceId');
+    const operation = core.getInput('operation');
+    const tplink = await login(email, password);
+    await performOperation(tplink, deviceType, deviceId, operation)
+  } catch (error) {
+    core.setFailed(error.message);
+  }
+})();
