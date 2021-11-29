@@ -4,9 +4,15 @@
   "description": "This action controls TP-Link smart devices from GitHub workflows.",
   "main": "index.js",
   "scripts": {
+    "build": "ncc build index.js --license licenses.txt",
     "test": "jest"
   },
-  "keywords": ["tp-link", "tplink", "github", "action"],
+  "keywords": [
+    "tp-link",
+    "tplink",
+    "github",
+    "action"
+  ],
   "author": "Kris Foster",
   "license": "ISC",
   "dependencies": {
@@ -14,6 +20,7 @@
     "tplink-cloud-api": "^0.8.1"
   },
   "devDependencies": {
+    "@vercel/ncc": "^0.32.0",
     "jest": "^27.3.1"
   }
 }
