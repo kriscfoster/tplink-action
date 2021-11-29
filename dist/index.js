@@ -6985,9 +6985,9 @@ async function performOperation(tplink, deviceType, deviceId, operation) {
 
 function checkValidity(deviceType, operation) {
   if (!supportedDeviceTypes.includes(deviceType)) {
-    throw new Error(`Unsupported device, supported devices are: [${supportedDeviceTypes}]`);
+    throw new Error(`Unsupported device (${deviceType}), supported devices are: [${supportedDeviceTypes}]`);
   } else if (!supportedOperations.includes(operation)) {
-    throw new Error(`Unsupported operation, supported operations are: ${supportedOperations.toString()}`);
+    throw new Error(`Unsupported operation (${operation}), supported operations are: ${supportedOperations.toString()}`);
   }
 }
 
