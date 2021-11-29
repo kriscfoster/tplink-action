@@ -7204,7 +7204,7 @@ const { performOperation } = __nccwpck_require__(3904);
   try {
     const email = core.getInput('email');
     const password = core.getInput('password');
-    const deviceType = core.getInput('deviceOperation');
+    const deviceType = core.getInput('deviceType');
     const deviceId = core.getInput('deviceId');
     const operation = core.getInput('operation');
     const tplink = await login(email, password);
