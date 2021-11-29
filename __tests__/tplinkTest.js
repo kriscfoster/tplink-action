@@ -9,12 +9,12 @@ it('should pass validity check', () => {
 it('should throw error that device type is not supported', () => {
   expect(() => {
     checkValidity('HS1234', 'powerOn')
-  }).toThrow(new Error('Unsupported device, supported devices are: [HS100]'));
+  }).toThrow(new Error('Unsupported device (HS1234), supported devices are: [HS100]'));
 });
 
 it('should throw error that device operation is not supported', () => {
   expect(() => {
     checkValidity('HS100', 'unplug')
-  }).toThrow(new Error('Unsupported operation, supported operations are: powerOn,powerOff'));
+  }).toThrow(new Error('Unsupported operation (unplug), supported operations are: powerOn,powerOff'));
 });
 
