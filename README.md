@@ -20,11 +20,11 @@ This action controls TP-Link smart devices from GitHub workflows. Right now, thi
 
 ## `deviceId`
 
-**Required** Device id/alias.
+**Required** Device id/alias e.g. `714597GH64602FE04FBB370T6F73FD111ED5H52A` or `Kettle Plug`.
 
 ## `operation`
 
-**Required** Operation you want to perform on device. Currently supported: `powerOn`, `powerOff`.
+**Required** Operation you want to perform on device. Currently supported: `powerOn`, `powerOff`, `listDevices` (does not require valid `deviceType`/`deviceId`).
 
 ## Outputs
 
@@ -39,6 +39,6 @@ with:
   email: ${{ secrets.TPLINK_EMAIL }}
   password: ${{ secrets.TPLINK_PASSWORD }}
   deviceType: "HS100" # currently supported: "HS100"
-  deviceId: "Office Lamp Plug" # this can be the id/alias of the device
-  operation: "powerOn" # currently supported: "powerOn", "powerOff"
+  deviceId: "Kettle Plug" # this can be the id/alias of the device
+  operation: "powerOn" # currently supported: "powerOn", "powerOff", "listDevices"
 ```

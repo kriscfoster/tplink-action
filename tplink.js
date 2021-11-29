@@ -6,13 +6,18 @@ const supportedDeviceTypes = [HS100];
 const supportedOperations = [POWER_ON, POWER_OFF];
 
 async function performOperation(tplink, deviceType, deviceId, operation) {
+  const devices = await tplink.getDeviceList();
+  if (operation === 'listDevices') {
+    return devices;
+  }
+
   checkValidity(deviceType, operation);
   if (deviceType === HS100) {
     const device = await tplink.getHS100(deviceId);
     if (operation === POWER_ON) {
-      await device.powerOn();
-    } else if (operation === powerOff) {
-      await device.powerOff();
+      return device.powerOn();
+    } else if (operation === POWER_OFF) {
+      return device.powerOff();
     }
   }
 }
@@ -28,4 +33,4 @@ function checkValidity(deviceType, operation) {
 module.exports = {
   performOperation,
   checkValidity,
-}
+};
